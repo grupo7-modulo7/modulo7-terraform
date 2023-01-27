@@ -1,5 +1,2 @@
 [diplo_vm1]
-172.176.65.160
-
-[vmtest002]
-172.176.64.164
+172.176.65.160 # Ajustar la IP a la que corresponda
