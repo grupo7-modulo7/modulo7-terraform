@@ -4,6 +4,7 @@
   remote_user: admindiplo
   become_user: root
   tasks:  
+  
   - name: Instala Java 11
     ansible.builtin.yum:
       name: java-11-openjdk-devel
@@ -22,3 +23,13 @@
     ansible.builtin.systemd:
       name: jenkins
       state: started
+  - name: Abre puerto para Jenkins
+    ansible.posix.firewalld:
+      port: 8080/tcp
+      permanent: yes
+      state: enabled
+  - name: Reinicia firewalld
+    ansible.builtin.systemd:
+      name: firewalld
+      state: restarted
+
